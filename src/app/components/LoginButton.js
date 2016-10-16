@@ -2,8 +2,8 @@ import React from "react";
 
 export default class LoginButton extends React.Component {
 	render() {
-		let style = "";
-		let word = "";
+		let style = "",
+			word = "";
 		switch (this.props.status) {
 			case "start":
 				style = "glyphicon glyphicon-arrow-right";

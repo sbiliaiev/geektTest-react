@@ -39,7 +39,7 @@ export default class LoginForm extends React.Component {
 		this.setState({status: "process"});
 		e.preventDefault();
 		console.log(this.state);
-		let username = this.state.login,
+		const username = this.state.login,
 			password = this.state.password,
 			remember = false;
 		Backendless.UserService.login(username, password, remember, new Backendless.Async(this.userLoggedIn.bind(this), this.gotError.bind(this)));	
