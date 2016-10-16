@@ -10,12 +10,12 @@ export default class LoginForm extends React.Component {
 		this.state = {status: "start"};	//0 start, 1 process, 2 success, 3 fail
 	}
 
-	handleLoginChange(e) {
+	handleLoginChange = (e) => {
 		this.setState({login: e.target.value});
 		// console.log(this.state);
 	}
 
-	handlePasswordChange(e) {
+	handlePasswordChange = (e) => {
 		this.setState({password: e.target.value});
 		// console.log(this.state);
 	}
@@ -35,7 +35,7 @@ export default class LoginForm extends React.Component {
 		console.log("error code - " + err.statusCode);
 	}
 
-	handleSubmit(e) {
+	handleSubmit = (e) => {
 		this.setState({status: "process"});
 		e.preventDefault();
 		console.log(this.state);
@@ -43,16 +43,15 @@ export default class LoginForm extends React.Component {
 			password = this.state.password,
 			remember = false;
 		Backendless.UserService.login(username, password, remember, new Backendless.Async(this.userLoggedIn.bind(this), this.gotError.bind(this)));	
-
 	}
 
 	render() {
 		return (
 			<div className="container text-center hello">
-				<form className="form-signin" onSubmit={this.handleSubmit.bind(this)}>
+				<form className="form-signin" onSubmit={this.handleSubmit}>
 					<FormHeader />
-					<InputField placeholder="Login" status={this.state.status} type="text" onChange={this.handleLoginChange.bind(this)} />
-					<InputField placeholder="Password" status={this.state.status} type="password" onChange={this.handlePasswordChange.bind(this)} />
+					<InputField placeholder="Login" status={this.state.status} type="text" onChange={this.handleLoginChange} />
+					<InputField placeholder="Password" status={this.state.status} type="password" onChange={this.handlePasswordChange} />
 					<LoginButton status={this.state.status} />
 				</form>
 			</div>
