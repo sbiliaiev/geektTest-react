@@ -7,7 +7,7 @@ import InputField from "./InputField";
 export default class LoginForm extends React.Component {
 	constructor() {
 		super();
-		this.state = {status: 0};	//0 begin/fail, 1 process, 2 success, 3 fail
+		this.state = {status: "start"};	//0 start, 1 process, 2 success, 3 fail
 	}
 
 	handleLoginChange(e) {
@@ -22,21 +22,21 @@ export default class LoginForm extends React.Component {
 
 	userLoggedIn() {
 		setTimeout(() => {
-			this.setState({status: 2});
+			this.setState({status: "success"});
 		}, 2000);
 		console.log("success");
 	}
 
 	gotError(err) {
 		setTimeout(() => {
-			this.setState({status: 3});
+			this.setState({status: "fail"});
 		}, 2000);
 		console.log("error message - " + err.message);
 		console.log("error code - " + err.statusCode);
 	}
 
 	handleSubmit(e) {
-		this.setState({status: 1});
+		this.setState({status: "process"});
 		e.preventDefault();
 		console.log(this.state);
 		let username = this.state.login,
@@ -51,9 +51,9 @@ export default class LoginForm extends React.Component {
 			<div className="container text-center hello">
 				<form className="form-signin" onSubmit={this.handleSubmit.bind(this)}>
 					<FormHeader />
-					<InputField placeholder="Login" status={this.state.status} type="text" eventHandler={this.handleLoginChange.bind(this)} />
-					<InputField placeholder="Password" status={this.state.status} type="password" eventHandler={this.handlePasswordChange.bind(this)} />
-					<LoginButton status={this.state.status}/>
+					<InputField placeholder="Login" status={this.state.status} type="text" onChange={this.handleLoginChange.bind(this)} />
+					<InputField placeholder="Password" status={this.state.status} type="password" onChange={this.handlePasswordChange.bind(this)} />
+					<LoginButton status={this.state.status} />
 				</form>
 			</div>
 		);
