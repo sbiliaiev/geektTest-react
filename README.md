@@ -8,3 +8,5 @@ $ npm install
 $ npm start
 ```
 The app will be available on [http://localhost:8080](http://localhost:8080)
+
+The right pair of login/password is "geektest" for both.
