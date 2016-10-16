@@ -1,0 +1,55 @@
+.hello {
+    color: #000;
+    font-weight: bold !important;
+}
+
+.form-signin {
+	max-width: 330px;
+	margin: auto;
+}
+
+.form-signin input {
+	height: 50px;
+	margin-bottom: 30px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.btn-default {
+	color: #147397;
+	border-radius: 50px 50px 50px 50px;
+	width: 200px;
+}
+
+.glyphicon-fire {
+	color: #E8AB1A;
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+
+.glyphicon-ok {
+	color: green;
+}
+
+.cog {
+	padding: 5px 5px;
+}
+
+.cog i {
+	font-size: 1.5em;
+}
+
+.has-error {
+	border-color: #f00;
+}
+
+/*
+
+input.ng-invalid {
+    border-color: #f00;
+}
+
+input.ng-invalid:focus {
+    border-color: #f00;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+*/
