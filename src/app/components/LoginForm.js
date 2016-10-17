@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 
 import LoginButton from "./LoginButton";
 import FormHeader from "./FormHeader";
@@ -32,7 +33,7 @@ store.dispatch({type: "CHANGE_STATUS", payload: "start"});
 export default class LoginForm extends React.Component {
 	constructor() {
 		super();
-		this.store = store.getState();
+		// this.store = store.getState();
 		// this.state = store.dispatch({type: "CHANGE_STATUS", payload: "start"});
 		// this.state = {status: "start"};	//0 start, 1 process, 2 success, 3 fail	
 		// this.store = createStore(mainReducer);
@@ -42,18 +43,14 @@ export default class LoginForm extends React.Component {
 	}
 
 	handleLoginChange = (e) => {
-		console.log('original store', store.getState());
 		store.dispatch({type: "CHANGE_LOGIN", payload: e.target.value});
-		console.log('changed store', store.getState());
 		// this.store.dispatch({type: "CHANGE_LOGIN", payload: e.target.value});
 		// this.setState({login: e.target.value});
 		// console.log(this.state);
 	}
 
 	handlePasswordChange = (e) => {
-		console.log('original store', store.getState());
 		store.dispatch({type: "CHANGE_PASSWORD", payload: e.target.value});
-		console.log('changed store', store.getState());
 		// this.store.dispatch({type: "CHANGE_PASSWORD", payload: e.target.value});
 		// this.setState({password: e.target.value});
 		// console.log(this.state);
@@ -83,7 +80,7 @@ export default class LoginForm extends React.Component {
 		// this.store.dispatch({type: "CHANGE_STATUS", payload: "process"});
 		store.dispatch({type: "CHANGE_STATUS", payload: "process"});
 		e.preventDefault();
-		console.log(this.store);
+		// console.log(this.store);
 		// const username = this.store.login,
 		// 	password = this.store.password,
 		// 	remember = false;
@@ -98,14 +95,16 @@ export default class LoginForm extends React.Component {
 		this.store = store.getState();
 		console.log('render', this.store);
 		return (
+			<Provider store={store}>
 			<div className="container text-center hello">
 				<form className="form-signin" onSubmit={this.handleSubmit}>
 					<FormHeader />
-					<InputField placeholder="Login" status={store.getState().status} type="text" onChange={this.handleLoginChange} />
-					<InputField placeholder="Password" status={store.getState().status} type="password" onChange={this.handlePasswordChange} />
-					<LoginButton status={store.getState().status} />
+					<InputField placeholder="Login" type="text" onChange={this.handleLoginChange} />
+					<InputField placeholder="Password" type="password" onChange={this.handlePasswordChange} />
+					<LoginButton />
 				</form>
 			</div>
+			</Provider>
 		);
 	}
 }

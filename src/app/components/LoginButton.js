@@ -1,11 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default class LoginButton extends React.Component {
+class LoginButton extends React.Component {
 	render() {
-		console.log('STATUS IS', this.props.status);
+		const { status } = this.props.newState;
 		let style = "",
 			word = "";
-		switch (this.props.status) {
+		switch (status) {
 			case "start":
 				style = "glyphicon glyphicon-arrow-right";
 				word = "Login ";
@@ -31,3 +32,11 @@ export default class LoginButton extends React.Component {
 		);
 	}
 }
+
+function mapStateToProps (state) {
+	return {
+		newState: state
+	}
+}
+
+export default connect(mapStateToProps)(LoginButton)
