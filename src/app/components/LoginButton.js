@@ -2,6 +2,7 @@ import React from "react";
 
 export default class LoginButton extends React.Component {
 	render() {
+		console.log('STATUS IS', this.props.status);
 		let style = "",
 			word = "";
 		switch (this.props.status) {
