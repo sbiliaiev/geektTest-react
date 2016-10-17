@@ -11,11 +11,11 @@ import { createStore } from "redux";
 const mainReducer = (state={}, action) => {
 	switch (action.type) {
 		case "CHANGE_STATUS":
-			return state = {...state, status: action.payload};
+			return {...state, status: action.payload};
 		case "CHANGE_LOGIN":
-			return state = {...state, login: action.payload};
+			return {...state, login: action.payload};
 		case "CHANGE_PASSWORD":
-			return state = {...state, password: action.payload};
+			return {...state, password: action.payload};
 		default:
 			return state;
 	}		
