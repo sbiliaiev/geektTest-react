@@ -1,9 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
-class LoginButton extends React.Component {
+export default class LoginButton extends React.Component {
 	render() {
-		const { status } = this.props.newState;
+		// const { status } = this.props.newState;
+		console.log('H*T',this.props);
+		const { status } = this.props.status;
 		let style = "",
 			word = "";
 		switch (status) {
@@ -33,10 +35,10 @@ class LoginButton extends React.Component {
 	}
 }
 
-function mapStateToProps (state) {
-	return {
-		newState: state
-	}
-}
+// function mapStateToProps (state) {
+// 	return {
+// 		newState: state
+// 	}
+// }
 
-export default connect(mapStateToProps)(LoginButton)
+// export default connect(mapStateToProps)(LoginButton)

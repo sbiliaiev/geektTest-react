@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
-class InputField extends React.Component {
+export default class InputField extends React.Component {
 	render() {
-		const { status } = this.props.newState;
+		// const { status } = this.props.newState;
 		let style = "form-control";	//0 start, 1 process, 2 success, 3 fail
 		switch (status) {
 			case "start":
@@ -33,10 +33,10 @@ class InputField extends React.Component {
 }
 
 
-function mapStateToProps (state) {
-	return {
-		newState: state
-	}
-}
+// function mapStateToProps (state) {
+// 	return {
+// 		newState: state
+// 	}
+// }
 
-export default connect(mapStateToProps)(InputField)
+// export default connect(mapStateToProps)(InputField)
