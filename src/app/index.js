@@ -17,10 +17,10 @@ import { Provider } from "react-redux";
 
 store.subscribe(() => console.log("new state", store.getState()));
 store.dispatch({type: "CHANGE_STATUS", payload: "start"});
-// console.log("hello from index", store.getState());
 
 const app = document.getElementById("app");
 ReactDOM.render(
 	<Provider store={store}>
 		<LoginForm />
-	</Provider>, app);
+	</Provider>,
+app);
